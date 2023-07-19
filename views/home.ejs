@@ -6,6 +6,11 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Home page</h1>
+    <h1>Home page <%= all%></h1>
+    <ul>
+        <% all.forEach((item)=>{ %>
+            <li><%= item.name%></li>
+        <%})%>
+    </ul>
 </body>
 </html>
