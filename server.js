@@ -9,6 +9,6 @@ app.get('/',(req,res)=>{
     res.render('home')
 })
 
-app.listen(3000,()=>{
+app.listen(8080,()=>{
     console.log('server started with port 3000')
 })
