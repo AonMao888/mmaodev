@@ -15,7 +15,7 @@ th{background: royalblue;color: var(--back);font-size: 24px;margin: 0;padding: 9
 td{background: var(--back);padding: 9px;box-shadow: 1px 2px 3px rgba(64, 64, 64, 0.358);border-radius: 4px;color: var(--color);transition: 0.3s;font-size: 19px;}
 td:hover{background: #eeeeee71;}
 td:nth-child(1){font-weight: bold;}
-td:nth-child(4){color: royalblue;}
+td:nth-child(4){color: royalblue;}td a{text-decoration: none;}
 .s{width: max-content;display: flex;justify-content: left;}
 .pop{width: 600px;height: 300px;background: var(--back);position: fixed;top: 50%;left: 50%;transform: translate(-50%,-50%);border: 1px solid #acacac96;display: flex;flex-direction: column;justify-content: center;align-items: center;border-radius: 15px;}
 .pop h1{margin: 5px;font-size: 36px;color: royalblue;}
@@ -40,7 +40,7 @@ td:nth-child(4){color: royalblue;}
                     <td><%= item.name%></td>
                     <td><%= item.address%></td>
                     <td><%= item.email%></td>
-                    <td><%= item.student_id%></td>
+                    <td><a href="students/<%= item.student_id%>"><%= item.student_id%></a></td>
                 </tr>
             <%})%>
         </table>

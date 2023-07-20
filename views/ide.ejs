@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code IDE</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="shortcut icon" href="https://cdn-icons-png.flaticon.com/512/876/876019.png" type="image/x-icon">
+    <style>
+        body{margin: 0;background: #fff;display: flex;min-height: 100vh;}
+        .left{width: 919px;display: flex;flex-direction: column;align-items: center;}
+        .nav{display: flex;align-items: center;width: 100%;justify-content: space-between;padding: 3px 0;}
+        .nav h1{margin: 5px;color: var(--color);font-size: 24px;margin-left: 15px;}
+        .left .nav button{background: royalblue;color: white;padding: 8px 14px;border-radius: 4px;margin-right: 9px;cursor: pointer;font-size: 9px;outline: none;border: none;}
+        .btn{display: flex;margin-right: 15px;align-items: center;}
+        .btn button{margin-right: 9px;color: dimgray;cursor: pointer;font-size: 15px;font-weight: bold;outline: none;border: none;background: none;}
+        textarea{width: 91%;margin: 0 auto;padding: 12px;font-size: 17px;background: #61616133;color: #333;outline: none;border: none;height: 100%;resize: none;}
+        .right{width: 100%;}
+        .right .nav h1 button{display: none;}
+        .right .nav{display: flex;background: #fff;align-items: center;height: 51px;box-shadow: 1px 2px 3px #33333353;}
+        .right .nav h1{margin: 5px 15px;color: dimgray;font-size: 24px;display: flex;align-items: center;}
+        .back{color: #333;font-size: 15px;cursor: pointer;padding: 6px;outline: none;display: none;transition: 0.5s;transform: scale(1);}.back:active{transform: scale(0.87);}
+        .right .nav button{background: royalblue;color: white;padding: 7px 14px;border-radius: 4px;outline: none;border: none;transition: 0.5s;transform: scale(1);margin-right: 12px;cursor: pointer;}
+        .right .nav button:hover{background: rgb(91, 34, 207);}.right .nav button:active{transform: scale(0.89);}
+        iframe{width: 100%;height: calc(100% - 57px);margin: 0;padding: 0;}.phnav{display: none;}
+        .toast{position: fixed;left: 0;bottom: -100px;background: #333;color: white;margin: 9px;padding: 9px 14px;border-radius: 4px;font-size: 17px;transition: 0.5s;}
+        @media(max-width:900px){.nav h1{font-size: 19px;}.left{width: 595px;}.btn button{font-size: 12px;}.btn i{font-size: 14px;}textarea{font-size: 14px;}.right .nav{height: 39px;}iframe{height: calc(100% - 47px);background: none;}.right .nav h1{font-size: 19px;}.right button{font-size: 12px;}}
+        @media(max-width:666px){.phnav{display: flex;}.nav h1{font-size: 4vw;}.btn i{font-size: 14px;}textarea{font-size: 3vw;}.right .nav h1{font-size: 3vw;}.right .nav button{font-size: 11px;}.back{display: flex;}.left{width: 100%;}.right{display: none;}.right .nav h1 button{display: flex;padding: 2px;}}
+        @media(max-width:500px){.nav h1{font-size: 5vw;}textarea{font-size: 4vw;}}
+    </style>
+</head>
+<body>
+    <div class="left">
+        <div class="nav phnav"><h1>Code IDE</h1><button onclick="run()">Run</button></div>
+        <div class="nav">
+            <h1>Html</h1>
+            <div class="btn">
+                <button onclick="copyhtml()">Copy</button>
+                <button style="background: none;color: royalblue;border: 2px solid royalblue;" class="htmlshr">Share</button>
+            </div>
+        </div>
+        <textarea placeholder="Html code" class="html" ></textarea>
+        <div class="nav">
+            <h1>CSS</h1>
+            <div class="btn">
+                <button onclick="copycss()">Copy</button>
+                <button style="background: none;color: royalblue;border: 2px solid royalblue;" class="cssshr">Share</button>
+            </div>
+        </div>
+        <textarea placeholder="CSS code" class="css"></textarea>
+        <div class="nav">
+            <h1>Javascript</h1>
+            <div class="btn">
+                <button onclick="copyjs()">Copy</button>
+                <button style="background: none;color: royalblue;border: 2px solid royalblue;" class="jsshr">Share</button>
+            </div>
+        </div>
+        <textarea placeholder="Javascript code" class="js" ></textarea>
+    </div>
+    <div class="right">
+        <div class="nav">
+            <h1><button style="color: royalblue;background: none;font-weight: bold;" onclick="back()"><= Back</button>Preview</h1>
+            <button class="run">Run</button>
+        </div>
+        <iframe src="" frameborder="0"></iframe>
+    </div>
+    <div class="toast"></div>
+    <script>
+        var htmlcode = document.querySelector(".html");
+var csscode = document.querySelector(".css");
+var jscode = document.querySelector(".js");
+var runbtn = document.querySelector(".run");
+var iframe = document.querySelector("iframe");
+
+runbtn.onclick=()=>{
+    iframe.contentDocument.body.innerHTML = htmlcode.value+'<style>'+csscode.value+'</style>';
+    iframe.contentWindow.eval(jscode.value)
+}
+
+function run(){
+    iframe.contentDocument.body.innerHTML = htmlcode.value+'<style>'+csscode.value+'</style>';
+    iframe.contentWindow.eval(jscode.value);
+    document.querySelector(".left").style.display = "none";
+    document.querySelector(".right").style.display = "block";
+}
+
+function copyhtml(){
+    htmlcode.select();
+    document.execCommand('copy');
+    toast("Html code copied..")
+}
+function copycss(){
+    csscode.select();
+    document.execCommand('copy');
+    toast("css code copied..")
+}
+function copyjs(){
+    jscode.select();
+    document.execCommand('copy');
+    toast("Javascript code copied..")
+}
+document.querySelector(".htmlshr").onclick=()=>{
+    navigator.share({
+        title:"My web program",
+        text:htmlcode.value
+    });
+}
+document.querySelector(".cssshr").onclick=()=>{
+    navigator.share({
+        title:"My web program",
+        text:csscode.value
+    });
+}
+document.querySelector(".jsshr").onclick=()=>{
+    navigator.share({
+        title:"My web program",
+        text:jscode.value
+    });
+}
+
+function toast(text){
+    var div = document.querySelector(".toast");
+    div.textContent = text;
+    div.style.bottom = 0;
+    setTimeout(()=>{
+        div.textContent = '';
+        div.style.bottom = '-100px';
+    },3000)
+}
+
+function back(){
+    document.querySelector(".left").style.display = "flex";
+    document.querySelector(".right").style.display = "none";
+}
+
+//check dark or light theme
+function checkdl(){
+    var getdl = localStorage.getItem('mddl');
+    if(getdl){
+      if(getdl == 'light'){
+        document.body.style.setProperty('--color','#333');
+        document.body.style.setProperty('--back','#fff');
+      }else{
+        document.body.style.setProperty('--color','#fff');
+        document.body.style.setProperty('--back','#333');
+      }
+    }else{localStorage.setItem('dlbtn','light')}
+  }
+  checkdl()
+    </script>
+</body>
+</html>

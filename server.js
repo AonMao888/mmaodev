@@ -32,6 +32,16 @@ app.get('/students/:id',async(req,res)=>{
     }
 })
 
+//get ide page
+app.get('/ide',(req,res)=>{
+    res.render('ide')
+})
+
+//get library page
+app.get('/library',(req,res)=>{
+    res.render('lib')
+})
+
 app.listen(80,()=>{
     console.log('server started with port 80')
 })
