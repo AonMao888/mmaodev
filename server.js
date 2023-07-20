@@ -21,6 +21,17 @@ app.get('/students',async(req,res)=>{
     res.render('s',{all:data})
 })
 
+//get specific student
+app.get('/students/:id',async(req,res)=>{
+    let sid = req.params.id;
+    let {data,error} = await supabase.from('students').select('*').eq('student_id',sid);
+    if(data){
+        res.render('student',{all:data});
+    }else if(error){
+        console.log(error)
+    }
+})
+
 app.listen(80,()=>{
     console.log('server started with port 80')
 })
