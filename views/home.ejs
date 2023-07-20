@@ -4,7 +4,178 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MMao Developers</title>
-    <link rel="stylesheet" href="public/css/home.css">
+    <style>
+        :root{
+    --color: #333;
+    --back: #fff;
+}
+body{
+    margin: 0;
+    background: white;
+}
+nav{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background: var(--back);
+    top: 0;
+    position: sticky;
+    justify-content: space-between;
+    box-shadow: 1px 2px 3px #33333359;
+}
+nav .top{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 0;
+}
+nav .left{
+    display: flex;
+    align-items: center;
+    margin-left: 19px;
+}
+nav .left a{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #333;
+    font-size: 27px;
+}
+nav .left a span{
+    color: royalblue;
+    font-weight: bold;
+    margin: 2px 5px;
+}
+nav .right{
+    display: flex;
+    align-items: center;
+    margin-right: 19px;
+}
+nav .right a{
+    margin: 2px 5px;
+    border-radius: 4px;
+    transition: 0.3s;
+    padding: 5px 15px;
+    text-decoration: none;
+    color: var(--color);
+}
+nav .right a:hover{
+    background: royalblue;
+    color: var(--back);
+}
+nav .right a p{
+    margin: 2px;
+    font-size: 18px;
+}
+nav .menu{
+    display: flex;
+    align-items: center;
+    padding: 9px 0;
+}
+nav .menu a{
+    margin-left: 15px;
+    text-decoration: none;
+    padding: 6px 12px;
+    color: var(--color);
+    position: relative;
+    font-size: 19px;
+}
+nav .menu a::before{
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 3px;
+    transition: 0.5s;
+    border-radius: 5px;
+    background: royalblue;
+    left: 0;
+    bottom: 0;
+}
+nav .menu a:hover::before{
+    width: 100%;
+}
+.head{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--color);
+    padding: 159px 0;
+}
+.head h1{
+    color: var(--back);
+    font-size: 42px;
+    overflow: hidden;
+    width: 400px;
+    margin: 5px;
+}
+.head h1 span{
+    overflow: hidden;
+    margin: 3px 9px;
+    color: royalblue;
+    position: relative;
+}
+.head h1 span::before{
+    content: "";
+    background: var(--color);
+    top: 0;
+    left: 0;
+    position: absolute;
+    padding-left: 5px;
+    padding-right: 5px;
+    height: 100%;
+    width: 100%;
+    border-left: 5px solid royalblue;
+    animation: animate 4s steps(12) infinite;
+}
+@keyframes animate{
+    40%,60%{
+        left: 100%;
+    }
+    100%{
+        left: 0%;
+    }
+}
+.head p{
+    margin: 5px;
+    color: var(--back);
+    font-size: 23px;
+}
+.btn{
+    display: flex;
+    align-items: center;
+    margin-top: 19px;
+}
+.btn a{text-decoration: none;
+    margin: 5px 15px;
+    border-radius: 4px;
+    padding: 9px 15px;
+}
+.btn a:nth-child(1){
+    color: var(--color);
+    background: var(--back);
+    font-size: 17px;
+    outline: 2px solid royalblue;
+    outline-offset: -4px;
+    transition: 0.5s;
+    border-radius: 4px;
+}
+.btn a:nth-child(1):hover{
+    color: royalblue;
+    outline-offset: 4px;
+    background: dimgray;
+    color: var(--back);
+    outline-color: white;
+}
+.btn a:nth-child(2){
+    color: var(--back);
+    transition: 0.5s;
+    border: 2px solid var(--back);
+}
+.btn a:nth-child(2):hover{
+    background: var(--back);
+    color: royalblue;
+}
+    </style>
 </head>
 <body>
     <nav>
