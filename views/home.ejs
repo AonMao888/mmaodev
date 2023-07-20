@@ -4,13 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="home.css">
 </head>
 <body>
-    <h1>Home page <%= all%></h1>
-    <ul>
-        <% all.forEach((item)=>{ %>
-            <li><%= item.name%></li>
-        <%})%>
-    </ul>
+    <nav>
+        <div class="top">
+            <div class="left">
+                <a href="">MMao<span>Developers</span></a>
+            </div>
+            <div class="right">
+                <a href=""><p>Library</p></a>
+                <a href=""><p>Settings</p></a>
+            </div>
+        </div>
+        <div class="menu">
+            <a href="">Find me</a>
+            <a href="">Students</a>
+            <a href="">Code IDE</a>
+            <a href="">Tools</a>
+        </div>
+    </nav>
+    <div class="head">
+        <h1>Welcome<span>Everyone</span></h1>
+        <p>Lessons, library and other tools available in this site.</p>
+        <div class="btn">
+            <a href="">CDN Links</a>
+            <a href="">Code IDE</a>
+        </div>
+    </div>
+    <script>
+        var ani = document.querySelector(".head h1 span");
+        function textani(){
+            setTimeout(()=>{ani.textContent = "Every one"},0);
+            setTimeout(()=>{ani.textContent = "Developers"},4000);
+            setTimeout(()=>{ani.textContent = "Students"},8000);
+        }
+        textani();
+        setInterval(()=>{textani()},12000)
+    </script>
 </body>
 </html>
