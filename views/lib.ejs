@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Library</title>
+    <link rel="shortcut icon" href="https://cdn-icons-png.flaticon.com/512/4205/4205106.png" type="image/x-icon">
+    <meta name="description" content="MMao library for students">
     <style>
         body{margin:0;display: flex;justify-content: center;align-items: center;min-height: 100vh;background: #eee;flex-direction: column;}
         .t{margin: 3px;color: royalblue;font-size: 51px;}p{margin: 5px;color: #333;font-size: 19px;}
@@ -12,14 +14,19 @@
         .btn a h1{margin: 9px;font-size: 36px;color: #333;transition: 0.4s;}
         .btn a p{margin: 5px;color: dimgray;font-size: 19px;}
         .btn a:hover h1{color: royalblue;}
+        @media(max-width:620px){
+            .t{font-size: 8vw;}p{font-size: 4vw;}
+            .btn a{margin: 5px 9px;}
+            .btn a h1{font-size: 5vw;}.btn a p{font-size: 3vw;}
+        }
     </style>
 </head>
 <body>
     <h1 class="t">Choose library</h1>
     <p>Library to develope your web page faster.</p>
     <div class="btn">
-        <a href="library/mcss"><h1>MCSS</h1><p>Library to style web page</p></a>
-        <a href="library/ms.js"><h1>Ms.js</h1><p>Library to script web page action</p></a>
+        <a href="https://mmaocss.netlify.app/"><h1>MCSS</h1><p>Library to style web page</p></a>
+        <a href="javascript:alert('This library will available soon...')"><h1>Ms.js</h1><p>Library to script web page action</p></a>
     </div>
 </body>
 </html>

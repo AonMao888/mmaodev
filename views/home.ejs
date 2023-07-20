@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MMao Developers</title>
+    <link rel="shortcut icon" href="https://mmao.netlify.app/assets/img/logo.png" type="image/x-icon">
+    <meta name="description" content="Website for MMao Developers">
     <style>:root{--color: #333;--back: #fff;}
 body{margin: 0;background: white;}
 nav{display: flex;flex-direction: column;width: 100%;background: var(--back);top: 0;position: sticky;justify-content: space-between;box-shadow: 1px 2px 3px #33333359;}
@@ -12,13 +14,16 @@ nav .left{display: flex;align-items: center;margin-left: 19px;}
 nav .left a{display: flex;align-items: center;text-decoration: none;color: #333;font-size: 27px;}
 nav .left a span{color: royalblue;font-weight: bold;margin: 2px 5px;}
 nav .right{display: flex;align-items: center;margin-right: 19px;}
-nav .right a{margin: 2px 5px;border-radius: 4px;transition: 0.3s;padding: 5px 15px;text-decoration: none;color: var(--color);}
+nav .right a{margin: 2px 5px;border-radius: 4px;transition: 0.3s;padding: 5px 15px;text-decoration: none;color: var(--color);display: flex;align-items: center;}
 nav .right a:hover{background: royalblue;color: var(--back);}
+nav .right a img{height: 20px;object-fit: contain;object-position: center;user-select: none;display: none;}
 nav .right a p{margin: 2px;font-size: 18px;}
 nav .menu{display: flex;align-items: center;padding: 9px 0;}
-nav .menu a{margin-left: 15px;text-decoration: none;padding: 6px 12px;color: var(--color);position: relative;font-size: 19px;}
+nav .menu a{margin-left: 15px;text-decoration: none;padding: 6px 12px;color: var(--color);position: relative;font-size: 19px;display: flex;flex-direction: column;align-items: center;justify-content: center;}
 nav .menu a::before{content: "";position: absolute;width: 0;height: 3px;transition: 0.5s;border-radius: 5px;background: royalblue;left: 0;bottom: 0;}
 nav .menu a:hover::before{width: 100%;}
+nav .menu a img{height: 19px;object-fit: contain;object-position: center;user-select: none;display: none;}
+nav .menu a p{margin: 2px;}
 .head{display: flex;flex-direction: column;align-items: center;background: var(--color);padding: 159px 0;}
 .head h1{color: var(--back);font-size: 42px;overflow: hidden;width: 400px;margin: 5px;}
 .head h1 span{overflow: hidden;margin: 3px 9px;color: royalblue;position: relative;}
@@ -31,17 +36,8 @@ nav .menu a:hover::before{width: 100%;}
 .btn a:nth-child(1):hover{color: royalblue;outline-offset: 4px;background: dimgray;color: var(--back);outline-color: white;}
 .btn a:nth-child(2){color: var(--back);transition: 0.5s;border: 2px solid var(--back);}
 .btn a:nth-child(2):hover{background: var(--back);color: royalblue;}
-@media(max-width:620px){
-    nav .left a{font-size: 4vw;}
-    nav .right a p{font-size: 3vw;}
-    nav .menu a{font-size: 3vw;}
-    .head h1{font-size: 7vw;}
-    .head p{font-size: 3vw;text-align: center;}
-    .btn a{font-size: 3vw;}
-}
-@media(max-width:500px){
-    .head h1{width: 89%;}
-}
+@media(max-width:620px){nav .left a{font-size: 4vw;}nav .right a p{font-size: 3vw;}nav .menu a{font-size: 3vw;}.head h1{font-size: 7vw;}.head p{font-size: 3vw;text-align: center;}.btn a{font-size: 3vw;}}
+@media(max-width:500px){.head h1{width: 82%;}nav .right a{padding: 5px;margin: 6px;}nav .right a:nth-child(1){display: none;}nav .right a:nth-child(2) p{display: none;}nav .right a img{display: block;}nav .menu{position: fixed;left: 0;bottom: 0;width: 100%;background: white;justify-content: space-evenly;padding: 5px 0;}nav .menu a{margin: 0;padding: 3px;}nav .menu a img{display: block;}}
     </style>
 </head>
 <body>
@@ -52,13 +48,14 @@ nav .menu a:hover::before{width: 100%;}
             </div>
             <div class="right">
                 <a href="library"><p>Library</p></a>
-                <a href=""><p>Settings</p></a>
+                <a href=""><img src="https://cdn-icons-png.flaticon.com/512/3953/3953226.png" alt=""><p>Settings</p></a>
             </div>
         </div>
         <div class="menu">
-            <a href="students">Students</a>
-            <a href="ide">Code IDE</a>
-            <a href="">Tools</a>
+            <a href="students"><img src="https://cdn-icons-png.flaticon.com/512/4394/4394574.png" alt=""><p>Students</p></a>
+            <a href="ide"><img src="https://cdn-icons-png.flaticon.com/512/876/876019.png" alt=""><p>Code ide</p></a>
+            <a href=""><img src="https://cdn-icons-png.flaticon.com/512/675/675579.png" alt=""><p>Tools</p></a>
+            <a href=""><img src="https://cdn-icons-png.flaticon.com/512/3953/3953226.png" alt=""><p>Settings</p></a>
         </div>
     </nav>
     <div class="head">
