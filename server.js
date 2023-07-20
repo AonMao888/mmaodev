@@ -17,7 +17,8 @@ app.get('/',async(req,res)=>{
 
 //app get students
 app.get('/students',async(req,res)=>{
-    res.render('s')
+    let {data,error} = await supabase.from('students').select('*');
+    res.render('s',{all:data})
 })
 
 app.listen(80,()=>{

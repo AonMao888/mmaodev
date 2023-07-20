@@ -3,9 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Students</title>
+    <title>MMao Students</title>
+    <link rel="stylesheet" href="css/student.css">
 </head>
 <body>
-    <h1>Students page</h1>
+    <h1>Students Table</h1>
+    <p>Look for your student ID and information in this talbe.</p>
+    <div class="s">
+        <table>
+            <tr>
+                <th class="font-effect-3d-float">Name</th>
+                <th class="font-effect-3d-float">Address</th>
+                <th class="font-effect-3d-float">Email</th>
+                <th class="font-effect-3d-float">Student ID</th>
+            </tr>
+            <% all.forEach((item)=>{%>
+                <tr>
+                    <td><%= item.name%></td>
+                    <td><%= item.address%></td>
+                    <td><%= item.email%></td>
+                    <td><%= item.student_id%></td>
+                </tr>
+            <%})%>
+        </table>
+    </div>
+    <div class="pop"><h1>Loading...</h1><p>Getting students information</p></div>
+    <script>
+        var pop = document.querySelector(".pop");
+        window.onload=()=>{
+            pop.remove()
+        }
+    </script>
 </body>
 </html>
