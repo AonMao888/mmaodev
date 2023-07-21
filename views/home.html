@@ -7,8 +7,8 @@
     <link rel="shortcut icon" href="https://mmao.netlify.app/assets/img/logo.png" type="image/x-icon">
     <meta name="description" content="Website for MMao Developers">
     <style>:root{--color: #333;--back: #fff;}
-body{margin: 0;background: white;}
-nav{display: flex;flex-direction: column;width: 100%;background: var(--back);top: 0;position: sticky;justify-content: space-between;box-shadow: 1px 2px 3px #33333359;}
+body{margin: 0;background: white;display: flex;flex-direction: column;align-items: center;}
+nav{display: flex;flex-direction: column;width: 100%;background: var(--back);top: 0;position: sticky;justify-content: space-between;box-shadow: 1px 2px 3px #33333359;z-index: 1;}
 nav .top{display: flex;align-items: center;justify-content: space-between;padding: 5px 0;}
 nav .left{display: flex;align-items: center;margin-left: 19px;}
 nav .left a{display: flex;align-items: center;text-decoration: none;color: #333;font-size: 27px;}
@@ -24,7 +24,7 @@ nav .menu a::before{content: "";position: absolute;width: 0;height: 3px;transiti
 nav .menu a:hover::before{width: 100%;}
 nav .menu a img{height: 19px;object-fit: contain;object-position: center;user-select: none;display: none;}
 nav .menu a p{margin: 2px;}
-.head{display: flex;flex-direction: column;align-items: center;background: var(--color);padding: 159px 0;}
+.head{display: flex;flex-direction: column;align-items: center;background:#333;padding: 159px 0;width: 100%;}
 .head h1{color: var(--back);font-size: 42px;overflow: hidden;width: 400px;margin: 5px;}
 .head h1 span{overflow: hidden;margin: 3px 9px;color: royalblue;position: relative;}
 .head h1 span::before{content: "";background: var(--color);top: 0;left: 0;position: absolute;padding-left: 5px;padding-right: 5px;height: 100%;width: 100%;border-left: 5px solid royalblue;animation: animate 4s steps(12) infinite;}
@@ -36,8 +36,19 @@ nav .menu a p{margin: 2px;}
 .btn a:nth-child(1):hover{color: royalblue;outline-offset: 4px;background: dimgray;color: var(--back);outline-color: white;}
 .btn a:nth-child(2){color: var(--back);transition: 0.5s;border: 2px solid var(--back);}
 .btn a:nth-child(2):hover{background: var(--back);color: royalblue;}
-@media(max-width:620px){nav .left a{font-size: 4vw;}nav .right a p{font-size: 3vw;}nav .menu a{font-size: 3vw;}.head h1{font-size: 7vw;}.head p{font-size: 3vw;text-align: center;}.btn a{font-size: 3vw;}}
-@media(max-width:500px){.head h1{width: 82%;}nav .right a{padding: 5px;margin: 6px;}nav .right a:nth-child(1){display: none;}nav .right a:nth-child(2) p{display: none;}nav .right a img{display: block;}nav .menu{position: fixed;left: 0;bottom: 0;width: 100%;background: white;justify-content: space-evenly;padding: 5px 0;}nav .menu a{margin: 0;padding: 3px;}nav .menu a img{display: block;}}
+.try{margin: 5px auto;font-size: 69px;color: #333;margin-top: 51px;}
+.bar{width: 91%;box-shadow: 3px 6px 9px #3333335a;padding: 36px 15px;margin: 9px 0;border-radius: 15px;border: 1px solid #eee;display: flex;align-items: center;}
+.icon{display: flex;align-items: center;font-size: 19px;font-weight: bold;margin-left: 15px;}.icon img{height: 36px;object-fit: contain;object-position: center;}
+.icon img:nth-child(2){margin-left: 6px;}.text{margin: 0 24px;width: 91%;}
+.text h1{font-size: 36px;margin: 5px;}.text h1 a{color: royalblue;text-decoration: none;}
+.text p{margin: 5px;color: dimgray;font-size: 23px;}.barlink{display: flex;}
+.abtn{text-decoration: none;white-space: nowrap;margin: 0 12px;padding: 15px 36px;font-weight: bold;font-size: 24px;border-radius: 8px;}
+.abtn.out{border: 2px solid royalblue;color: royalblue;}
+.abtn.in{background: royalblue;border: 2px solid rgb(40, 45, 198);color: white;}
+@media(max-width:1100px){.bar{padding: 27px 14px;}.try{font-size: 7vw;}.text{margin: 0 15px;}.text h1{font-size: 3vw;}.text p{font-size: 2vw;}.abtn{padding: 10px 27px;font-size: 2vw;}.icon img{height: 27px;}}
+@media(max-width:777px){.abtn{margin: 0 7px;}}
+@media(max-width:620px){nav .left a{font-size: 4vw;}nav .right a p{font-size: 3vw;}nav .menu a{font-size: 3vw;}.head h1{font-size: 7vw;}.head p{font-size: 3vw;text-align: center;}.btn a{font-size: 3vw;}.barlink{flex-direction: column;}.abtn{margin: 3px 0;}.bar{padding: 19px 12px;}}
+@media(max-width:500px){body{padding-bottom: 63px;}.head h1{width: 82%;}nav .right a{padding: 5px;margin: 6px;}nav .right a:nth-child(1){display: none;}nav .right a:nth-child(2) p{display: none;}nav .right a img{display: block;}nav .menu{position: fixed;left: 0;bottom: 0;width: 100%;background: white;justify-content: space-evenly;padding: 5px 0;border-top: 2px solid #d8d8d882;}nav .menu a{margin: 0;padding: 3px;}nav .menu a img{display: block;}.text{margin: 0px 5px;}.text h1{font-size: 3.5vw;}.text p{font-size: 2.5vw;}.icon{margin-left: 2px;}}
     </style>
 </head>
 <body>
@@ -62,11 +73,25 @@ nav .menu a p{margin: 2px;}
         <h1>Welcome<span>Everyone</span></h1>
         <p>Lessons, library and other tools available in this site.</p>
         <div class="btn">
-            <a href="">CDN Links</a>
-            <a href="">Code IDE</a>
+            <a href="library">CDN Links</a>
+            <a href="ide">Code IDE</a>
         </div>
     </div>
-
+    <h1 class="try">Ready to style?</h1>
+    <div class="bar">
+        <div class="icon">
+            <img src="https://mmaocss.netlify.app/img/logo.png" alt="">+
+            <img src="https://cdn-icons-png.flaticon.com/512/4248/4248174.png" alt="">
+        </div>
+        <div class="text">
+            <h1>Style your html with <a href="https://mmaocss.netlify.app/">MCSS</a></h1>
+            <p>Style your html page faster with this library by giving class name.</p>
+        </div>
+        <div class="barlink">
+            <a href="" class="abtn out">Start now</a>
+            <a href="" class="abtn in">Read Doc</a>
+        </div>
+    </div>
     <script>
         var ani = document.querySelector(".head h1 span");
         function textani(){
